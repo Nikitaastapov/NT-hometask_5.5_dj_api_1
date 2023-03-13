@@ -1,0 +1,22 @@
+1)python3 -m venv demo - создание окружения проекта issue
+2)source issue/bin/activate - активация окружения
+3)pip install -r requirements.txt - установка бибилиотек из файла requirements.txt
+4)django-admin startproject new_project . - создание django-проекта new_project (в конце точка, чтобы не создавать папку с окружением)
+5)python3 manage.py startapp DJ_API - создание приложения auth  в проекте
+6)в папке проекта заходим в файл settings.py раздел INSTALLED_APPS и прописываем созданные приложения:DJ_API, rest_framework
+7) создание БД
+createdb -U postgres netology_smart_home
+8) установка драйвера для БД 
+pip install psycopg2-binary
+9) python3 manage.py migrate - создание структуры базы данных
+10) python3 manage.py runserver - запуск сервера
+11) python3 manage.py makemigrations - отправка изменений + python manage.py migrate
+
+10) python3 manage.py shell - спец интерпретатор django
+запись в БД
+from main.models import Products -импортируем класс Product из файла models
+prod1 = Products(name = "Apple Iphone 14", description = "mobile phone", price = 120000) - создали экземпляр класса и заполнили БД
+prod1.save() - сохранили запись в БД
+или
+Products.objects.create(name = "Apple Iphone 13", description = "mobile phone", price = 100000)
+11)python3 manage.py createsuperuser - создание пользователя для Админ
